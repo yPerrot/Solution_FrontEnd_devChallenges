@@ -13,7 +13,7 @@ devChallenges.io is a community and a platform, developed by [Thu Nghiem](https:
 You can find the code of each challenge is this repo, but there are also available directly through GitHub Pages at the following links.
 
 Done:
- - [Button component](https://github.com/yPerrot/Solution_FrontEnd_devChallenges/button-component)
+ - [Button component](https://profound-bavarois-a197bf.netlify.app/)
 
 To-Do:
  - Input component
