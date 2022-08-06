@@ -13,10 +13,9 @@ devChallenges.io is a community and a platform, developed by [Thu Nghiem](https:
 You can find the code of each challenge is this repo, but there are also available directly through GitHub Pages at the following links.
 
 Done:
- - _None_
+ - [Button component](https://github.com/yPerrot/Solution_FrontEnd_devChallenges/button-component)
 
 To-Do:
- - Button component
  - Input component
  - Windbnb
  - Todo app
