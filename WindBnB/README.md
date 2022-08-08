@@ -10,7 +10,7 @@
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/yPerrot/Solution_FrontEnd_devChallenges/tree/main/windbnb">
+    <a href="https://github.com/yPerrot/Solution_FrontEnd_devChallenges/tree/main/WindBnB">
       Solution
     </a>
     <span> | </span>
