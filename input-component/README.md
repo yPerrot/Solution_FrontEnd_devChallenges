@@ -6,15 +6,15 @@
 
 <div align="center">
   <h3>
-    <a href="https://profound-bavarois-a197bf.netlify.app/">
+    <a href="https://yperrot-input-component.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/yPerrot/Solution_FrontEnd_devChallenges/tree/main/button-component">
+    <a href="https://github.com/yPerrot/Solution_FrontEnd_devChallenges/tree/main/input-component">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenges/ohgVTyJCbm5OZyTB2gNY">
+    <a href="https://devchallenges.io/challenges/TSqutYM4c5WtluM7QzGp">
       Challenge
     </a>
   </h3>
@@ -46,7 +46,7 @@
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/ohgVTyJCbm5OZyTB2gNY) was to build an application to complete the given user stories.
+This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/TSqutYM4c5WtluM7QzGp) was to build an application to complete the given user stories.
 
 ## How To Use
 
