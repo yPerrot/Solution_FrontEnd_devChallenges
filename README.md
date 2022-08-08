@@ -15,9 +15,9 @@ You can find the code of each challenge is this repo, but there are also availab
 Done:
  - [Button component](https://profound-bavarois-a197bf.netlify.app/)
  - [Input component](https://yperrot-input-component.netlify.app/)
+ - [Windbnb](https://yperrot-windbnb.netlify.app/)
 
 To-Do:
- - Windbnb
  - Todo app
  - Random quote generator
  - Country quiz

@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+/* Reset Style */
+input, button {
+    all: unset;
+}
+
+/* Style */
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.search {
+    display: grid;
+    grid-template-columns: 5fr 4fr 50px;
+
+    margin: 3rem 6.5vw;
+
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    font-family: 'Mulish', sans-serif;
+}
+
+@media (min-width:768px) {
+ 
+    .header {
+        align-items: baseline;
+        flex-direction: row;
+
+        margin-bottom: 3.5rem;
+    }
+
+    .search {
+        margin: 0;
+        margin-left: auto;    
+        width: 300px;
+    }
+
+}
+
+.search > input {
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    padding: 1rem;
+    padding-right: 0.5rem;
+    
+    font-size: 14px;
+    color: rgba(51, 51, 51, 1);
+}
+
+.search > input::placeholder {
+    color: rgb(189, 189, 189);
+}
+
+.search__guest-input {
+    border-left: 1px solid #F2F2F2;;
+    border-right: 1px solid #F2F2F2;;
+}
+
+.search__btn {
+    color: rgba(235, 87, 87, 0.9);
+    
+    display: grid;
+    place-items: center;
+}

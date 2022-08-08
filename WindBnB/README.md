@@ -1,4 +1,4 @@
-<h1 align="center">Input component - yPerrot</h1>
+<h1 align="center">WindBnB - yPerrot</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -6,15 +6,15 @@
 
 <div align="center">
   <h3>
-    <a href="https://yperrot-input-component.netlify.app/">
+    <a href="https://yperrot-windbnb.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/yPerrot/Solution_FrontEnd_devChallenges/tree/main/input-component">
+    <a href="https://github.com/yPerrot/Solution_FrontEnd_devChallenges/tree/main/windbnb">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenges/TSqutYM4c5WtluM7QzGp">
+    <a href="https://devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD">
       Challenge
     </a>
   </h3>
@@ -41,12 +41,13 @@
 
 - [React](https://reactjs.org/)
 - [Create React App](https://create-react-app.dev/)
+- [ESLint](https://eslint.org/)
 
 ## Features
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/TSqutYM4c5WtluM7QzGp) was to build an application to complete the given user stories.
+This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD) was to build an application to complete the given user stories.
 
 ## How To Use
 
@@ -58,7 +59,7 @@ $ git clone https://github.com/yPerrot/Solution_FrontEnd_devChallenges.git
 
 # Go to the project folder
 $ cd Solution_FrontEnd_devChallenges
-$ cd button-component
+$ cd windbnb
 
 # Install dependencies
 $ npm install

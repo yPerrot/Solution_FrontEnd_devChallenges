@@ -1,0 +1,60 @@
+.guest-selector {
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 27px;
+    
+    margin-bottom: 35px;
+}
+
+@media (min-width:768px) {
+    .guest-selector {
+        grid-area: guest;
+        margin-bottom: 0;
+    }
+}
+
+.guest-picker {
+    margin-top: 32px;
+}
+
+.guest-picker__title {
+    margin: 0;
+    margin-bottom: 8px;
+
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: #333333;
+
+}
+
+.guest-picker__sub-title {
+    margin: 0;
+    margin-bottom: 12px;
+
+    font-size: 0.875rem;
+    color: #bdbdbd;
+}
+
+.guest-picker__input {
+    display: flex;
+
+    align-items: center;
+}
+
+.guest-picker__input__btn {
+    display: grid;
+    
+    height: 23px;
+    width: 23px;
+
+    justify-content: center;
+    align-content: center;
+
+    border: 1px solid #828282;
+    border-radius: 4px;
+    
+    cursor: pointer;
+}
+
+.guest-picker__input__value {
+    margin: 0 1rem;
+}
