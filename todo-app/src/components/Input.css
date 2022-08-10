@@ -1,0 +1,40 @@
+.task-form {
+    margin-top: 1rem;
+    
+    display: grid;
+    grid-template-columns: 8fr minmax(100px, 2fr);
+    gap: 25px;
+}
+
+.task-form__input:focus {
+    outline: 2px solid var(--blue);
+    border-color: var(--white);
+}
+
+.task-form__input {
+    padding-left: 12px;
+
+    border: 1px solid var(--gray-1);
+    border-radius: 12px;
+    
+    outline: none;
+
+    font-family: var(--main-font);
+    font-size: 0.75rem;
+    color: var(--black);
+}
+
+.task-form__btn {
+    padding: 20px 0;
+
+    border: none;
+    border-radius: 12px;
+    background-color: var(--blue);
+    
+    font-family: var(--main-font);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--white);
+
+    cursor: pointer;
+}
