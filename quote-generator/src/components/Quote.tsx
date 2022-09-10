@@ -1,13 +1,13 @@
 
 interface QuoteProps {
-    text: string,
+  text: string,
 }
 
 const Quote = ({text}: QuoteProps) => {
 
   return (
     <div className="quote">
-      {text}
+      “{text}”
     </div>
   );
 };
