@@ -23,10 +23,13 @@ function Main( { author, quotes, handleAuthorQuotes }: MainProps) {
       <h1>{author}</h1>
       {quotes && quotsToJSX()}
       {author === '' && quotes != null && 
-      <div onClick={handleAuthorQuotes}>
-        <span>{quotes[0].quoteAuthor}</span>
-        <span className="material-icons">east</span>
-      </div>
+        <button onClick={handleAuthorQuotes} className='quote-btn'>
+          <div className='quote-btn__text'>
+            <p className='quote-btn__text__author'>{quotes[0].quoteAuthor}</p>
+            <p className='quote-btn__text__genre'>{quotes[0].quoteGenre}</p>
+          </div>
+          <span className="material-icons">east</span>
+        </button>
       }
     </main>
   );

@@ -8,7 +8,8 @@
 
 :root {
   --grey-1: #828282;
-  --grey-2: #333333;
+  --grey-2: #4F4F4F;
+  --grey-3: #333333;
 
   --white: #F2F2F2;
 
@@ -18,7 +19,7 @@
 body {
   // Default text style
   font-family: 'Raleway', sans-serif;
-  color: var(--grey-2);
+  color: var(--grey-3);
 }
 
 #root {
@@ -50,7 +51,7 @@ header {
     }
   
     & > span:nth-child(2) {
-      color: var(--grey-2);
+      color: var(--grey-3);
       font-size: 1.25rem;
     }
   }
@@ -59,38 +60,119 @@ header {
 
 
 main {
+
+  margin: 0 auto;
+
+  min-height: 100%;
+  width: clamp(300px, 70vw, 750px);
+
   display: flex;
   flex-direction: column;
-  width: clamp(300px, 70vw, 750px);
-  margin: 0 auto;
+  justify-content: center;
   flex: 1;
 
-  height: 100%;
-
-  justify-content: center;
-
   h1 {
-    display: inline-block;
-    min-height: 2.625rem;
+    // display: inline-block;
+    // min-height: 2.625rem;
     font-size: 2.25rem;
     font-weight: 700;
   }
 
+  
+  .quote {
+    position: relative;
+    
+    font-size: 2.25rem;
+    font-weight: 500;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 100%;
+      left: -100px;
+      background-color: var(--pirmary-color);
+    }
+  }
+  
   .quote + .quote {
     margin-top: 5rem;
   }
 
-  .quote {
+  .quote-btn {
     position: relative;
-  }
 
-  .quote::before {
-    content: '';
-    position: absolute;
-    width: 8px;
-    height: 100%;
-    left: -15px;
-    background-color: var(--pirmary-color);
+    margin-top: 150px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: inherit;
+    
+    box-sizing: content-box;
+    border: none;
+
+    cursor: pointer;
+
+    // Text
+    & > div {
+      text-align: left;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    &__text__author {
+      color: var(--grey-2);
+      font-size: 1.5rem;
+      font-weight: 700;
+
+      margin-bottom: 8px;
+    }
+
+    &__text__genre {
+      color: var(--grey-1);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    &:hover {
+      .quote-btn__text__author {
+        color: var(--white);
+      }
+      
+      .quote-btn__text__author {
+        color: var(--white);
+      }
+    }
+
+    // Arrow icon
+    & > span {
+      vertical-align: middle;
+      color: white;
+    }
+
+    &:hover > span {
+      color: var(--white);
+    }
+
+    &::before {
+      content: "";
+      background-color: inherit;
+      position: absolute;
+      z-index: -1;
+
+      inset: 0;
+
+      transition: all 0.3s;
+    }
+
+    &:hover::before {
+      content: "";
+      background-color: var(--grey-3);
+      position: absolute;
+      z-index: -1;
+      inset: -50px -30px;
+    }
   }
 
 }
