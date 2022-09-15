@@ -1,9 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 
-interface HeaderProps {
-    handleRandomQuote: () => void,
-}
+function Header() {
 
-function Header({ handleRandomQuote }: HeaderProps) {
+  const navigate = useNavigate();
+
+  const handleRandomQuote = () => {
+    navigate('/');
+  };
 
   return (
     <header>
