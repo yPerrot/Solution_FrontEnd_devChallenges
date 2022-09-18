@@ -17,9 +17,9 @@ Done:
  - [Input component](https://yperrot-input-component.netlify.app/)
  - [Windbnb](https://yperrot-windbnb.netlify.app/)
  - [Todo app](https://yperrot-todo-app.netlify.app/)
+ - [Random quote generator](https://yperrot-quote-generator.netlify.app/)
 
 To-Do:
- - Random quote generator
  - Country quiz
  - Weather app
  - Github Jobs
