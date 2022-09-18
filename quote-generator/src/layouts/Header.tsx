@@ -5,7 +5,8 @@ function Header() {
   const navigate = useNavigate();
 
   const handleRandomQuote = () => {
-    navigate('/');
+    if (window.location.pathname === '/') window.location.href = '/';
+    else navigate('/');
   };
 
   return (
