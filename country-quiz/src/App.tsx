@@ -1,34 +1,98 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { getRandomCapitalQuestion, getRandomFlagQuestion, CapitalQuestion, FlagQuestion } from './API/RESTCountries';
+import { useEffect, useState } from 'react';
+import CountCard from './components/CountCard';
+import QuestionCard from './components/QuestionCard';
+import AnswerCard from './components/AnswerCard';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [count, setCount] = useState(0);
+
+  const [question, setQuestion] = useState<CapitalQuestion | FlagQuestion | null>(null);
+  // const [responses, setResponses] = useState<string[]>([]);
+  const [responseId, setResponseId] = useState(-1);
+  // const [capital, setCapital] = useState('');
+  // const [flag, setFlag] = useState('');
+
+  const [stage, setStage] = useState<'Question' | 'Answer' | 'Score'>('Question');
+
+  const resetAnswersCount = () => {
+    setCount(0);
+  };
+
+  const increaseAnswersCounter = () => {
+    setCount(count + 1);
+  };
+
+  const nextStage = () => {
+    if (stage === 'Question') setStage('Answer');
+    else if (stage === 'Answer') setStage('Score');
+    else setStage('Question');
+  };
+
+  const initQuestion = () => {
+    if (Math.random() > 0.5) {
+      setQuestion(getRandomFlagQuestion());
+    } else {
+      setQuestion(getRandomCapitalQuestion());
+    }
+  };
+
+  const checkAnswer = (id: number) => {
+    if (id === question?.responseId) {
+      increaseAnswersCounter();
+    } else {
+      resetAnswersCount();
+    }
+  };
+
+  const questionCardNextPage = (resId: number) => {
+    setResponseId(resId);
+    checkAnswer(resId);
+    nextStage();
+  };
+
+  const answerCardNextPage = () => {
+    nextStage();
+  };
+
+  const countCardNextPage = () => {
+    initQuestion();
+    nextStage();
+  };
+
+  useEffect(() => {
+    initQuestion();
+  }, []);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <>
+      {(question !== null) &&
+        <>
+          {(stage === 'Question') &&
+            <QuestionCard
+              question={question}
+              nextPage={questionCardNextPage}
+            />
+          }
+          {(stage === 'Answer') &&
+            <AnswerCard
+              question={question}
+              responseId={responseId}
+              nextPage={answerCardNextPage}
+            />
+          }
+          {(stage === 'Score') &&
+            <CountCard
+              count={count}
+              nextPage={countCardNextPage}
+            />
+          }
+        </>
+      }
+    </>
+
+  );
 }
 
-export default App
+export default App;

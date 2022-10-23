@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --grey-1: #F2F2F2;
+
+    --white: #FFFFFF;
+    --dark-blue: #2F527B;
+    --yellow: #F9A826;
+
+    --primary-light: #6066D0B2;
+    --primary-normal: #6066D0CC;
+
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+
+    background-image: url("/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    width: 464px;
+
+    & > h1 {
+        padding: 1rem 0;
+        color: var(--grey-1);
+        font-weight: 700;
+        font-size: 2.25rem;
+        text-transform: uppercase;
+    }
+
+    & > img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 162px;
+        height: 116px;
+    }
+
+    & > &__body {
+        background-color: white;
+        border-radius: 24px;
+        padding: 68px 32px;
+
+        & > h2 {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 32px;
+
+            & > .flag {
+                display: block;
+                font-size: 3.5rem;
+            }
+        }
+
+        & > .reponses {
+
+            & > button {
+                width: 100%;
+                
+                display: flex;
+                align-items: center;
+                
+                padding: 0.5rem 1rem;
+                
+                font-family: inherit;
+                font-weight: 500;
+                font-size: 1.125rem;
+                text-align: left;
+                color: var(--primary-normal);
+
+                cursor: pointer;
+                outline: none;
+
+                transition: all 0.2s ease-out;
+
+                border: 2px solid var(--primary-light);
+                border-radius: 12px;
+                background: transparent;
+
+                &:hover {
+                    color: white;
+                    background-color: var(--yellow);
+                    border-color: var(--yellow);
+                }
+
+                & > .letter {
+                    font-size: 1.5rem;
+                }
+
+                & > .response {
+                    margin: 0 2rem;
+                }
+
+                & > .validator {
+                    margin-left: auto;
+                    
+                    width: 24px;
+                    height: 24px;
+                    
+                    display: inline-block;
+
+                    flex-shrink: 0;
+                }
+
+                & > .hidden {
+                    visibility: hidden;
+                }
+            }
+
+            & > button + button {
+                margin-top: 1.5rem;
+            }
+        }
+    }
+}
