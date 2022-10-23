@@ -16,6 +16,9 @@
     --primary-light: #6066D0B2;
     --primary-normal: #6066D0CC;
 
+    --green: #60BF88;
+    --red: #EA8282;
+
 }
 
 body {
@@ -34,6 +37,8 @@ body {
 .card {
     position: relative;
     width: 464px;
+
+    margin: 2rem 0;
 
     & > h1 {
         padding: 1rem 0;
@@ -55,6 +60,10 @@ body {
         background-color: white;
         border-radius: 24px;
         padding: 68px 32px;
+
+        &:has(.next-btn) {
+            padding: 68px 32px 32px;
+        }
 
         & > h2 {
             font-weight: 700;
@@ -126,6 +135,61 @@ body {
             & > button + button {
                 margin-top: 1.5rem;
             }
+        }
+        
+        & > .answers {
+            // Remove btn hover behaviour
+            & > button {
+                cursor: default;
+
+                &:hover {
+                    color: var(--primary-normal);
+                    border-color: var(--primary-light);
+                    background: transparent;
+                }
+            }
+            
+            & > .valid-response, 
+            & > .valid-response:hover {
+                border-color: var(--green);
+                background: var(--green);
+
+                & > * {
+                    color: var(--white);
+                }
+            }
+            
+            & > .invalid-response,
+            & > .invalid-response:hover {
+                border-color: var(--red);
+                background: var(--red);
+
+                & > * {
+                    color: var(--white);
+                    fill: green;
+                }
+            }
+
+        }
+
+        & > .next-btn {
+            display: block;
+            margin: 24px 0 0 auto;
+
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--white);
+
+            outline: none;
+            border: none;
+            padding: 0.75rem 2.25rem;
+
+            background: var(--yellow);
+            box-shadow: 0px 2px 4px rgba(252, 168, 47, 0.4);
+            border-radius: 12px;
+
+            cursor: pointer;
         }
     }
 }

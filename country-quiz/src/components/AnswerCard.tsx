@@ -1,4 +1,5 @@
-import { Question, isCapitalQuestion, isFlagQuestion } from '../API/RESTCountries';
+import { Question } from '../API/RESTCountries';
+import CardTitle from './CardTitle';
 
 interface AnswerCardProps {
     question: Question,
@@ -27,23 +28,40 @@ function AnswerCard({question, responseId, nextPage}: AnswerCardProps) {
     return '';
   };
 
+  const getLetter = (id: number) => {
+    switch (id) {
+    case 0: return 'A';
+    case 1: return 'B';
+    case 2: return 'C';
+    case 3: return 'D';
+    }
+  };
+
   return (
     <div className='card'>
       <h1>Country Quiz</h1>
       <img src="/undraw_adventure_4hum 1.svg" alt="Undraw Adventure" />
-      <div>
-        {isFlagQuestion(question) && 
-          <h2><span>{question.flag}</span>Which country does this flag belong to?</h2>
-        }
-        {isCapitalQuestion(question) && 
-          <h2>{`${question.capital} is the capital of`}</h2>
-        }
-        <div className="reponses">
+      <div className='card__body'>
+        <CardTitle question={question} />
+
+        <div className="reponses answers">
           {question.responses.map((response, id) => (
-            <button key={id} className={getResponseClass(id)}>{response}</button>
+            <button key={id} className={getResponseClass(id)} >
+              <span className='letter'>{getLetter(id)}</span>
+              <span className='response'>{response}</span>
+              {getResponseClass(id) === 'invalid-response' &&
+                <img className='validator' src="/invalid.svg" alt="Invalid Response" />
+              }
+              {getResponseClass(id) === 'valid-response' &&
+                <img className='validator' src="/valid.svg" alt="Invalid Response" />
+              }
+              {/* {getResponseClass(id) === '' &&
+                <img className='validator hidden' src="/valid.svg" alt="Invalid Response" />
+              } */}
+            </button>
           ))}
         </div>
-        <button onClick={() => handleClick()}>Next</button>
+        <button className='next-btn' onClick={() => handleClick()}>Next</button>
       </div>
     </div>
   );

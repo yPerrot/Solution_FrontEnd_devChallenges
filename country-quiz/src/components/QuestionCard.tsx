@@ -35,7 +35,7 @@ function QuestionCard({ question, nextPage }: QuestionCardProps) {
             <button key={id} onClick={() => handleClick(id)} >
               <span className='letter'>{getLetter(id)}</span>
               <span className='response'>{response}</span>
-              <img className='validator hidden' src="/invalid.svg" alt="Invalid Response" />
+              {/* <img className='validator hidden' src="/invalid.svg" alt="Invalid Response" /> */}
             </button>
           ))}
         </div>
