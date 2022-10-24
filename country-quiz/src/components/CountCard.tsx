@@ -13,7 +13,7 @@ function CountCard({ count, nextPage }: CountCardProps) {
   return (
     <div className="card">
       <h1>Country Quiz</h1>
-      <div>
+      <div className="card__body count-card">
         <img src="/undraw_winners_ao2o 2.svg" alt="Undraw Adventure" />
         <h2>Results</h2>
         <p>you got <span>{count}</span> correct ansewr{count > 1 ? 's' : ''}</p>

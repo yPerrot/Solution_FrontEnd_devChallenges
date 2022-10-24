@@ -9,16 +9,9 @@ function App() {
   const [count, setCount] = useState(0);
 
   const [question, setQuestion] = useState<CapitalQuestion | FlagQuestion | null>(null);
-  // const [responses, setResponses] = useState<string[]>([]);
   const [responseId, setResponseId] = useState(-1);
-  // const [capital, setCapital] = useState('');
-  // const [flag, setFlag] = useState('');
 
   const [stage, setStage] = useState<'Question' | 'Answer' | 'Score'>('Question');
-
-  const resetAnswersCount = () => {
-    setCount(0);
-  };
 
   const increaseAnswersCounter = () => {
     setCount(count + 1);
@@ -41,8 +34,6 @@ function App() {
   const checkAnswer = (id: number) => {
     if (id === question?.responseId) {
       increaseAnswersCounter();
-    } else {
-      resetAnswersCount();
     }
   };
 
