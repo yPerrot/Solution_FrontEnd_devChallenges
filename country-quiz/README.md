@@ -6,11 +6,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://yperrot-country-quizz.netlify.app/">
+    <a href="https://yperrot-country-quiz.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/yPerrot/Solution_FrontEnd_devChallenges/tree/main/country-quizz">
+    <a href="https://github.com/yPerrot/Solution_FrontEnd_devChallenges/tree/main/country-quiz">
       Solution
     </a>
     <span> | </span>
@@ -59,7 +59,7 @@ $ git clone https://github.com/yPerrot/Solution_FrontEnd_devChallenges.git
 
 # Go to the project folder
 $ cd Solution_FrontEnd_devChallenges
-$ cd country-quizz
+$ cd country-quiz
 
 # Install dependencies
 $ npm install
