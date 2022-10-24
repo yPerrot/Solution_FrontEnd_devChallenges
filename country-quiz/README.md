@@ -6,15 +6,15 @@
 
 <div align="center">
   <h3>
-    <a href="https://yperrot-quote-generator.netlify.app/">
+    <a href="https://yperrot-country-quizz.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/yPerrot/Solution_FrontEnd_devChallenges/tree/main/quote-generator">
+    <a href="https://github.com/yPerrot/Solution_FrontEnd_devChallenges/tree/main/country-quizz">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8">
+    <a href="https://devchallenges.io/challenges/Bu3G2irnaXmfwQ8sZkw8">
       Challenge
     </a>
   </h3>
@@ -47,7 +47,7 @@
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8) was to build an application to complete the given user stories.
+This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/Bu3G2irnaXmfwQ8sZkw8) was to build an application to complete the given user stories.
 
 ## How To Use
 
@@ -59,7 +59,7 @@ $ git clone https://github.com/yPerrot/Solution_FrontEnd_devChallenges.git
 
 # Go to the project folder
 $ cd Solution_FrontEnd_devChallenges
-$ cd quote-generator
+$ cd country-quizz
 
 # Install dependencies
 $ npm install
