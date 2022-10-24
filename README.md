@@ -19,9 +19,9 @@ Done:
  - [Todo app](https://yperrot-todo-app.netlify.app/)
  - [Random quote generator](https://yperrot-quote-generator.netlify.app/)
  - [Country quiz](https://yperrot-country-quiz.netlify.app/)
+ - [Weather app](https://yperrot-weather-app.netlify.app/)
 
 To-Do:
- - Weather app
  - Github Jobs
 
 ## Technologies 
