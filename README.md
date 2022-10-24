@@ -18,9 +18,9 @@ Done:
  - [Windbnb](https://yperrot-windbnb.netlify.app/)
  - [Todo app](https://yperrot-todo-app.netlify.app/)
  - [Random quote generator](https://yperrot-quote-generator.netlify.app/)
+ - [Country quiz](https://yperrot-country-quizz.netlify.app/)
 
 To-Do:
- - Country quiz
  - Weather app
  - Github Jobs
 
