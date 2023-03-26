@@ -127,7 +127,7 @@ export type GetWeatherData = typeof getWeatherData;
 export async function getWeatherData(location: GetWeatherDataParam = 'London') {
   try {
     const stringLocation = typeof location === 'string' ? location : location.latitude + ',' + location.longitude;
-    const resp = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${stringLocation}&days=5&aqi=no&alerts=no`, {
+    const resp = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${stringLocation}&days=5&aqi=no&alerts=no`, {
       mode: 'cors',
     })
     
