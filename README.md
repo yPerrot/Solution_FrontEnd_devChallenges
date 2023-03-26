@@ -28,6 +28,7 @@ To-Do:
 
 Here is the technical stacks I used : 
  - React
+ - Svelte
  - JavaSript 
  - TypeSript 
  - CSS
