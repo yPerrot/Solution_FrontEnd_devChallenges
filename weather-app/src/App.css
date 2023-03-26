@@ -1,0 +1,50 @@
+/* Google Raleway Font (500-600-700) */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&display=swap');
+
+:root {
+    --main-bg-color: #100E1D;
+    --sub-bg-color: #1E213A;
+
+    --grey-1: #E7E7EB;
+    --grey-2: #A09FB1;
+    --grey-3: #88869D;
+    --grey-4: #616475;
+    --grey-5: #6e707a4d;
+
+    --blue: #3C47E9;
+    --dark-blue: #110E3C;
+    --yellow: #FFEC65;
+
+    --side-panel-width: 400px;
+}
+
+/* Reset Style */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+    text-decoration: none;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Body Style */
+body {
+    min-height: 100vh;
+    background-color: var(--main-bg-color);
+
+    color: var(--grey-1);
+    font-family: 'Raleway', sans-serif;
+}
+
+@media (max-width: 600px) {
+    .hide-overflow {
+        overflow: hidden;
+    }
+}
