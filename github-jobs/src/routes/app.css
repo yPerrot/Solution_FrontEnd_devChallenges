@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    scroll-padding-top: 40px;
+}
+
+button {
+    background: none;
+    border: none;
+    border-spacing: 0;
+    list-style: none outside none;
+    text-decoration: none;
+}
+
+body {
+    background: #F6F7FB;
+    padding: 0.75rem;
+    
+    scroll-behavior: smooth;
+}
