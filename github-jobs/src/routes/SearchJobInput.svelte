@@ -29,12 +29,12 @@
         padding: 4px;
 
         border-radius: 4px;
-        background: #fff;
+        background: var(--white);
         box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
     }
 
     .search > img {
-        color: #b9bdcf;
+        color: var(--grey);
         align-items: center;
 
         margin-left: 12px;
@@ -53,8 +53,8 @@
     }
 
     .search > input::placeholder {
-        color: #b9bdcf;
-        font-family: Roboto, sans-serif;
+        color: var(--grey);
+        font-family: var(--primary-font);
         font-size: 12px;
     }
 
@@ -62,10 +62,10 @@
         flex-shrink: 0;
 
         border-radius: 4px;
-        background-color: #1e86ff;
+        background-color: var(--blue);
 
-        color: #fff;
-        font-family: Roboto, sans-serif;
+        color: var(--white);
+        font-family: var(--primary-font);
         font-size: 16px;
         font-weight: 500;
 

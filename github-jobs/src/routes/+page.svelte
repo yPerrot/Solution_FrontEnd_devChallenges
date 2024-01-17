@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
+  import Header from "./Header.svelte";
   import JobCard from "./JobCard.svelte";
   import SearchInput from "./SearchJobInput.svelte";
   import LocationPicker from "./LocationPicker.svelte";
@@ -12,7 +13,7 @@
 
   async function loadData() {
     artists = [];
-    const response = await fetch("/api/data?skip=" + skip);
+    const response = await fetch("/api/all?skip=" + skip);
     const json = await response.json();
     artists = json.result;
   }
@@ -20,10 +21,8 @@
   onMount(loadData);
 </script>
 
-<header>
-  <div class="logo"><span>Github</span> Jobs</div>
-  <SearchInput />
-</header>
+<Header />
+<SearchInput />
 
 <main>
   <aside>
@@ -49,22 +48,6 @@
 </main>
 
 <style>
-  .logo {
-    color: #282538;
-
-    font-family: Poppins, sans-serif;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-
-    margin-bottom: 2rem;
-  }
-
-  .logo > span {
-    font-weight: 700;
-  }
-
   .full-time__container {
     margin-block: 30px;
     display: flex;
@@ -78,12 +61,10 @@
   }
 
   .full-time__container > label {
-    color: #334680;
-    font-family: Poppins, sans-serif;
+    color: var(--dark-blue);
+    font-family: var(--secondary-font);
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
-    line-height: normal;
   }
 
   #jobs {

@@ -28,8 +28,8 @@
 
 <style>
     h2 {
-        color: #b9bdcf;
-        font-family: Poppins, sans-serif;
+        color: var(--grey);
+        font-family: var(--secondary-font);
         font-size: 14px;
         font-weight: 700;
         text-transform: uppercase;
@@ -43,7 +43,7 @@
 
         display: flex;
         gap: 15px;
-        background-color: white;
+        background-color: var(--white);
         padding: 15px 12px;
 
         border-radius: 4px;
@@ -61,12 +61,12 @@
         outline: none;
         text-overflow: ellipsis;
 
-        font-family: Roboto, sans-serif;
+        font-family: var(--primary-font);
         font-size: 12px;
     }
 
     .location-search > input::placeholder {
-        color: #B9BDCF;
+        color: var(--grey);
     }
 
     /* Radio */
@@ -85,8 +85,8 @@
     }
 
     .location-picker > label {
-        color: #334680;
-        font-family: Poppins, sans-serif;
+        color: var(--dark-blue);
+        font-family: var(--secondary-font);
         font-size: 14px;
         font-weight: 500;
     }
