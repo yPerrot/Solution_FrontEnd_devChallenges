@@ -3,39 +3,55 @@
 
   import Header from "./Header.svelte";
   import JobCard from "./JobCard.svelte";
-  import SearchInput from "./SearchJobInput.svelte";
+  import SearchInput from "./SearchPanel.svelte";
   import LocationPicker from "./LocationPicker.svelte";
+  import Pagination from "./Pagination.svelte";
 
   import "./app.css";
+  import { getCurrentPage } from "../Utils";
 
   let artists: Root[] = [];
-  let skip = 0;
+  let nbMaxElem: number;
 
-  async function loadData() {
-    artists = [];
-    const response = await fetch("/api/all?skip=" + skip);
+  async function loadData(searchQuery?: string) {
+    const page = getCurrentPage();    
+    
+    const searchParam = searchQuery ? "&search=" + encodeURIComponent(searchQuery) : '';
+    
+    const response = await fetch("/api/all?skip=" + (page - 1) * 5 + searchParam);
     const json = await response.json();
+    
     artists = json.result;
+    nbMaxElem = json.count;
+  }
+
+  function next() {
+    const page = getCurrentPage();
+    
+    if ((page + 1) * 5 < nbMaxElem) {
+      localStorage.setItem("page", (page + 1).toString());
+      loadData();
+    }
+  }
+  
+  function previous() {
+    const page = getCurrentPage();    
+    if (page === 1) return;
+
+    localStorage.setItem("page", (page - 1).toString());
+    loadData();
   }
 
   onMount(loadData);
 </script>
 
 <Header />
-<SearchInput />
+<SearchInput onClick={loadData}/>
 
 <main>
-  <aside>
-    <div class="full-time__container">
-      <input type="checkbox" name="full-time" />
-      <label for="full-time">Full time</label>
-    </div>
-
-    <LocationPicker />
-
-  </aside>
   <section id="jobs">
     {#if artists.length === 0} 
+      <!-- Add loader -->
       Loading...
     {:else}
       {#each artists as artist}
@@ -44,29 +60,10 @@
     {/if}
   </section>
 
-  <a href="#jobs" on:click={() => {skip += 5; loadData()}}>Next</a>
+  <Pagination next={next} previous={previous} />
 </main>
 
 <style>
-  .full-time__container {
-    margin-block: 30px;
-    display: flex;
-  }
-
-  .full-time__container > input {
-    height: 20px;
-    width: 20px;
-
-    margin-inline: 12px 14px;
-  }
-
-  .full-time__container > label {
-    color: var(--dark-blue);
-    font-family: var(--secondary-font);
-    font-size: 14px;
-    font-weight: 500;
-  }
-
   #jobs {
     scroll-padding-top: 20px;
   }
