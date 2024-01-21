@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import Header from "./Header.svelte";
-  import JobCard from "./JobCard.svelte";
-  import SearchInput from "./SearchPanel.svelte";
-  import LocationPicker from "./LocationPicker.svelte";
-  import Pagination from "./Pagination.svelte";
+  import Header from "../components/Header.svelte";
+  import JobCard from "../components/JobCard.svelte";
+  import SearchInput from "../components/SearchPanel.svelte";
+  import LocationPicker from "../components/LocationPicker.svelte";
+  import Pagination from "../components/Pagination.svelte";
 
   import "./app.css";
   import { getCurrentPage } from "../Utils";

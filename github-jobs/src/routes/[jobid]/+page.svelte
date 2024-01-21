@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Header from "../Header.svelte";
+    import Header from "../../components/Header.svelte";
 
     import clock from "$lib/images/clock.svg";
     import globe from "$lib/images/globe.svg";
