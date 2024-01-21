@@ -27,6 +27,22 @@
     nbMaxElem = json.count;
   }
 
+  async function newQuery(searchQuery?: string) {
+    artists = undefined;
+    
+    localStorage.setItem("page", (1).toString());
+    currentPage = 1;
+
+    const searchParam = searchQuery ? "&search=" + encodeURIComponent(searchQuery) : "";
+    // TODO: Add searchParam to local storage
+
+    const response = await fetch("/api/all?skip=0" + searchParam);
+    const json = await response.json();
+
+    artists = json.result;
+    nbMaxElem = json.count;
+  }
+
   function next() {
     if ((currentPage + 1) * 5 < nbMaxElem) {
       localStorage.setItem("page", (currentPage + 1).toString());
@@ -47,7 +63,7 @@
   onMount(loadData);
 </script>
 
-<SearchPanel onClick={loadData} />
+<SearchPanel onClick={newQuery} />
 
 <section id="jobs">
   {#if artists === undefined}
