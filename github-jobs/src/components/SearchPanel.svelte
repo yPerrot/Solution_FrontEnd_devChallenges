@@ -1,6 +1,7 @@
 <script lang="ts">
     import briefcase from "$lib/images/briefcase.svg";
     import LocationPicker from "./LocationPicker.svelte";
+    import DurationPicker from "./DurationPicker.svelte";
 
     export let onClick: (searchQuery?: string) => void;
     let searchQuery: string;
@@ -18,29 +19,8 @@
     </div>
 </div>
 
-<aside>
-    <div class="full-time__container">
-        <input type="checkbox" name="full-time" />
-        <label for="full-time">Full time</label>
-    </div>
-
-    <!-- FROM -->
-    <label for="pet-select">Choose a pet:</label>
-    <select name="pets" id="pet-select">
-        <option value="">--Please choose an option--</option>
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="hamster">Hamster</option>
-        <option value="parrot">Parrot</option>
-        <option value="spider">Spider</option>
-        <option value="goldfish">Goldfish</option>
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-    </select>
-    <!-- TO -->
-
-    <LocationPicker />
-</aside>
+<DurationPicker />
+<LocationPicker />
 
 <style>
     .search-container {
@@ -49,6 +29,8 @@
         background-size: cover;
 
         border-radius: 8px;
+
+        margin-bottom: 16px;
     }
 
     .search {
@@ -102,22 +84,4 @@
         cursor: pointer;
     }
 
-    .full-time__container {
-        margin-block: 30px;
-        display: flex;
-    }
-
-    .full-time__container > input {
-        height: 20px;
-        width: 20px;
-
-        margin-inline: 12px 14px;
-    }
-
-    .full-time__container > label {
-        color: var(--dark-blue);
-        font-family: var(--secondary-font);
-        font-size: 14px;
-        font-weight: 500;
-    }
 </style>
