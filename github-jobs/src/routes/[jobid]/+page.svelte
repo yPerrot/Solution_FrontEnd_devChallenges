@@ -1,6 +1,4 @@
 <script lang="ts">
-    import Header from "../../components/Header.svelte";
-
     import clock from "$lib/images/clock.svg";
     import globe from "$lib/images/globe.svg";
     import defaultImg from "$lib/images/default.svg";
@@ -10,7 +8,6 @@
     export let data: Root;
 </script>
 
-<Header />
 
 <a class="back" href="/">← Back to search</a>
 
