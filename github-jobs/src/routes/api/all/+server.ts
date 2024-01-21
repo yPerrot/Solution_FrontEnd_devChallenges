@@ -6,8 +6,6 @@ export async function GET(request) {
     const skip = request.url.searchParams.get('skip') || 0;
     const search = request.url.searchParams.get('search');
     
-    console.log(search);
-    
     const response = search ? await searchJobs(skip, search) : await getLastest(skip);
 
 	return json(await response.json());

@@ -7,18 +7,19 @@
 
   import { getCurrentPage } from "../Utils";
 
-  let artists: Root[] = [];
+  let artists: Root[] | undefined = undefined;
   let nbMaxElem: number;
+  let currentPage = getCurrentPage();
 
   async function loadData(searchQuery?: string) {
-    const page = getCurrentPage();
+    currentPage = getCurrentPage();
 
     const searchParam = searchQuery
       ? "&search=" + encodeURIComponent(searchQuery)
       : "";
 
     const response = await fetch(
-      "/api/all?skip=" + (page - 1) * 5 + searchParam,
+      "/api/all?skip=" + (currentPage - 1) * 5 + searchParam,
     );
     const json = await response.json();
 
@@ -27,10 +28,9 @@
   }
 
   function next() {
-    const page = getCurrentPage();
-
-    if ((page + 1) * 5 < nbMaxElem) {
-      localStorage.setItem("page", (page + 1).toString());
+    if ((currentPage + 1) * 5 < nbMaxElem) {
+      localStorage.setItem("page", (currentPage + 1).toString());
+      currentPage += 1;
       loadData();
     }
   }
@@ -40,6 +40,7 @@
     if (page === 1) return;
 
     localStorage.setItem("page", (page - 1).toString());
+    currentPage -= 1;
     loadData();
   }
 
@@ -49,7 +50,7 @@
 <SearchPanel onClick={loadData} />
 
 <section id="jobs">
-  {#if artists.length === 0}
+  {#if artists === undefined}
     <!-- Add loader -->
     Loading...
   {:else}
@@ -59,7 +60,7 @@
   {/if}
 </section>
 
-<Pagination {next} {previous} />
+<Pagination {next} {previous} {currentPage} max={Math.round(nbMaxElem / 5)}/>
 
 <style>
   #jobs {
