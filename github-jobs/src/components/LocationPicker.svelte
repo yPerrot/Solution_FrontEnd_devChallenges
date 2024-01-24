@@ -1,6 +1,8 @@
-<script>
+<script lang="ts">
     import globe from "$lib/images/globe.svg";
     import countries from "$lib/data/countires.json"
+
+    export let location: number;
 
     const sortedCountries = countries.sort(({countryNameEn: name1}, {countryNameEn: name2}) => name1.localeCompare(name2));
 </script>
@@ -10,10 +12,10 @@
 
     <div class="locations">
         <img src={globe} class="logo" alt="Globe Logo" />
-        <select required>
+        <select required bind:value={location} on:change={() => console.log(location)}>
             <option value="" disabled selected hidden>Select a country name</option>
             {#each sortedCountries as country}
-                <option value="${country.countryId}">{country.countryNameEn.toLowerCase()}</option>
+                <option value={country.countryId}>{country.countryNameEn.toLowerCase()}</option>
             {/each}
         </select>
     </div>

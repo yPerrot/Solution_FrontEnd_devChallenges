@@ -21,3 +21,20 @@ export function getCurrentPage() {
 
     return page;
 }
+
+export function getConfig(): QueryParams {
+    const queryParams = JSON.parse(localStorage.getItem("queryParams") || 'null');
+
+    if (!queryParams) {
+      localStorage.setItem("page", "1");
+      return {
+        duration: {
+            "12": false,
+            "18": false,
+            "24": false,
+        }
+      }
+    }
+
+    return queryParams;
+}

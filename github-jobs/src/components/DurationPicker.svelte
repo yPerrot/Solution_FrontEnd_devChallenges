@@ -1,5 +1,5 @@
 <script lang="ts">
-    
+    export let value: [boolean, boolean, boolean]
 </script>
 
 <div class="time-picker picker">
@@ -7,18 +7,18 @@
     
     <div class="times">
         <div class="time">
-            <input type="checkbox" name="6-12" />
+            <input type="checkbox" name="6-12" bind:checked={value[0]} />
             <label for="6-12">6 to 12 months</label>
         </div>
         
         <div class="time">
-            <input type="checkbox" name="12-18" />
-            <label for="12-18">12 to 16 months</label>
+            <input type="checkbox" name="12-18" bind:checked={value[1]} />
+            <label for="12-18">12 to 18 months</label>
         </div>
         
         <div class="time">
-            <input type="checkbox" name="18-24" />
-            <label for="18-24">16 to 24 months</label>
+            <input type="checkbox" name="18-24" bind:checked={value[2]} />
+            <label for="18-24">18 to 24 months</label>
         </div>
     </div>
 </div>

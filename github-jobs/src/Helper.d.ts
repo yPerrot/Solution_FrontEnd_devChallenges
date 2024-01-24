@@ -1,6 +1,6 @@
 interface Root {
     id: number
-    
+
     // Missopn
     missionTitle: string
     missionType: string
@@ -19,7 +19,7 @@ interface Root {
     organizationCountryCounter: string
     organizationPathImage: string
     organizationUrlImage: string
-    
+
     // Location
     cityAffectationId: number
     cityName: string
@@ -29,11 +29,11 @@ interface Root {
     countryName: string
     countryNameEn: string
 
-    
+
     viewCounter: number
     candidateCounter: number
     pathImage: string
-    
+
     activitySectorN1: string
     activitySectorN2: any
     activitySectorN3: any
@@ -62,4 +62,15 @@ interface Specialization {
     specializationParentId: number
     specializationLabel: string
     specializationLabelEn: string
+}
+
+
+type QueryParams = {
+    query?: string;
+    locationId?: number;
+    duration: {
+        "12": boolean;
+        "18": boolean;
+        "24": boolean;
+    };
 }

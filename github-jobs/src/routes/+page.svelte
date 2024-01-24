@@ -5,62 +5,67 @@
   import SearchPanel from "../components/SearchPanel.svelte";
   import Pagination from "../components/Pagination.svelte";
 
-  import { getCurrentPage } from "../Utils";
+  import { getConfig, getCurrentPage } from "../Utils";
 
   let artists: Root[] | undefined = undefined;
   let nbMaxElem: number;
   let currentPage = getCurrentPage();
 
-  async function loadData(searchQuery?: string) {
+  async function sendRequest() {
+    artists = undefined; // Display loader
+
     currentPage = getCurrentPage();
+    const currentConfig = getConfig();
 
-    const searchParam = searchQuery
-      ? "&search=" + encodeURIComponent(searchQuery)
-      : "";
+    const searchParam = currentConfig.query ? "&search=" + encodeURIComponent(currentConfig.query) : "";
+    const locationIdParam = currentConfig.locationId ? "&locationId=" + encodeURIComponent(currentConfig.locationId) : "";
 
-    const response = await fetch(
-      "/api/all?skip=" + (currentPage - 1) * 5 + searchParam,
-    );
+    // .
+    const durationsArray = Object.entries(currentConfig.duration).reduce<string[]>((acc, [key, value]) => {
+      if (value) acc.push(key)
+      return acc;
+    }, [])
+    const durationsParam = durationsArray.length > 0 ? "&duration=" + encodeURIComponent(durationsArray.join(',')) : '';
+
+    const response = await fetch("/api/all?skip=" + (currentPage - 1) * 5 + searchParam + locationIdParam + durationsParam);
     const json = await response.json();
 
     artists = json.result;
     nbMaxElem = json.count;
   }
 
-  async function newQuery(searchQuery?: string) {
-    artists = undefined;
-    
-    localStorage.setItem("page", (1).toString());
+  function newQuery(queryParams: QueryParams) {
     currentPage = 1;
-
-    const searchParam = searchQuery ? "&search=" + encodeURIComponent(searchQuery) : "";
-    // TODO: Add searchParam to local storage
-
-    const response = await fetch("/api/all?skip=0" + searchParam);
-    const json = await response.json();
-
-    artists = json.result;
-    nbMaxElem = json.count;
+    localStorage.setItem("page", "1");
+    localStorage.setItem("queryParams", JSON.stringify(queryParams));
+    sendRequest();
   }
 
   function next() {
     if ((currentPage + 1) * 5 < nbMaxElem) {
       localStorage.setItem("page", (currentPage + 1).toString());
       currentPage += 1;
-      loadData();
+      sendRequest();
     }
   }
 
   function previous() {
-    const page = getCurrentPage();
-    if (page === 1) return;
+    if (currentPage === 1) return;
 
-    localStorage.setItem("page", (page - 1).toString());
+    localStorage.setItem("page", (currentPage - 1).toString());
     currentPage -= 1;
-    loadData();
+    sendRequest();
   }
 
-  onMount(loadData);
+  function setPage(page: number) {
+    if (page === currentPage) return; 
+
+    localStorage.setItem("page", (page).toString());
+    currentPage = page;
+    sendRequest();
+  }
+
+  onMount(sendRequest);
 </script>
 
 <SearchPanel onClick={newQuery} />
@@ -76,7 +81,7 @@
   {/if}
 </section>
 
-<Pagination {next} {previous} {currentPage} max={Math.round(nbMaxElem / 5)}/>
+<Pagination {next} {previous} {setPage} {currentPage} max={Math.ceil(nbMaxElem / 5)}/>
 
 <style>
   #jobs {
