@@ -14,6 +14,7 @@
         <img src={globe} class="logo" alt="Globe Logo" />
         <select required bind:value={location} on:change={() => console.log(location)}>
             <option value="" disabled selected hidden>Select a country name</option>
+            <option value="" class="unselect">Remove selection</option>
             {#each sortedCountries as country}
                 <option value={country.countryId}>{country.countryNameEn.toLowerCase()}</option>
             {/each}
@@ -62,6 +63,11 @@
     option {
         text-transform: capitalize;
         color: var(--light-black);
+    }
+
+    .unselect {
+        font-style: italic;
+        color: var(--grey);
     }
 
 </style>
