@@ -34,8 +34,8 @@
     </div>
 </div>
 
-<DurationPicker value={durations} />
-<LocationPicker bind:location />
+<!-- <DurationPicker value={durations} />
+<LocationPicker bind:location /> -->
 
 <style>
     .search-container {

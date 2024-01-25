@@ -6,6 +6,8 @@
   import Pagination from "../components/Pagination.svelte";
 
   import { getConfig, getCurrentPage } from "../Utils";
+    import LocationPicker from "../components/LocationPicker.svelte";
+    import DurationPicker from "../components/DurationPicker.svelte";
 
   let artists: Root[] | undefined = undefined;
   let nbMaxElem: number;
@@ -70,20 +72,45 @@
 
 <SearchPanel onClick={newQuery} />
 
-<section id="jobs">
-  {#if artists === undefined}
-    <!-- Add loader -->
-    Loading...
-  {:else}
-    {#each artists as artist}
-      <JobCard data={artist} />
-    {/each}
-  {/if}
-</section>
-
-<Pagination {next} {previous} {setPage} {currentPage} max={Math.ceil(nbMaxElem / 5)}/>
+<div>
+  <aside>
+    <DurationPicker value={[false, false, false]} />
+    <LocationPicker location={-1} />
+    <!-- <LocationPicker bind:location /> -->
+  </aside>
+  
+  <main>
+    <section id="jobs">
+      {#if artists === undefined}
+        <!-- Add loader -->
+        Loading...
+      {:else}
+        {#each artists as artist}
+          <JobCard data={artist} />
+        {/each}
+      {/if}
+    </section>
+    
+    <Pagination {next} {previous} {setPage} {currentPage} max={Math.ceil(nbMaxElem / 5)}/>
+  </main>
+</div>
 
 <style>
+  @media screen and (min-width: 1025px) {
+    div {
+      display: flex;
+      gap: 32px;
+    }
+
+    aside {
+      width: 380px;
+    }
+
+    main {
+      flex-grow: 1;
+    }
+  }
+  
   #jobs {
     scroll-padding-top: 20px;
   }

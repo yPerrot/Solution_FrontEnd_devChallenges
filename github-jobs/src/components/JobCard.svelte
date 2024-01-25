@@ -28,20 +28,23 @@
     />
 
     <div class="content">
-        <div class="informations">
+        <div>
             <h3 class="organization">{data.organizationName.toLowerCase()}</h3>
             <h2 class="title">{data.missionTitle.toLowerCase()}</h2>
-            <div class="job-duration">{data.missionDuration} months</div>
         </div>
+        
+        <div class="informations">
+            <div class="job-duration">{data.missionDuration} months</div>
 
-        <div class="tags">
-            <div class="city tag">
-                <img src={globe} alt="Globe Logo" />
-                <p>{data.cityNameEn.toLowerCase()}</p>
-            </div>
-            <div class="publication tag">
-                <img src={clock} alt="Clock Logo" />
-                <p>{getReleaseDate(data.startBroadcastDate)} days ago</p>
+            <div class="tags">
+                <div class="city tag">
+                    <img src={globe} alt="Globe Logo" />
+                    <p>{data.cityNameEn.toLowerCase()}</p>
+                </div>
+                <div class="publication tag">
+                    <img src={clock} alt="Clock Logo" />
+                    <p>{getReleaseDate(data.startBroadcastDate)} days ago</p>
+                </div>
             </div>
         </div>
     </div>
@@ -78,6 +81,24 @@
     .content {
         display: flex;
         flex-direction: column;
+
+        flex-grow: 1;
+    }
+
+        
+    @media screen and (min-width: 1025px) {
+        .informations {
+            display: flex;
+            flex-direction: row;
+
+            margin-top: 24px;
+        }
+
+        .informations > .tags {
+            margin-left: auto;
+            margin-top: 0;
+        }
+        
     }
 
     .organization {
