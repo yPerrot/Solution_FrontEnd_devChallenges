@@ -19,7 +19,7 @@
         {@html leftArrow}
     </button>
 
-    {#if max === 1}
+    {#if max < 2}
         <PaginationNumber {setPage} number={1} {currentPage} />
     {:else if max === 2}
         <PaginationNumber {setPage} number={1} {currentPage} />

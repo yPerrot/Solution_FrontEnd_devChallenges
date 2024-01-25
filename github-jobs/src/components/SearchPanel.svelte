@@ -1,25 +1,9 @@
 <script lang="ts">
     import briefcase from "$lib/images/briefcase.svg";
-    import LocationPicker from "./LocationPicker.svelte";
-    import DurationPicker from "./DurationPicker.svelte";
 
-    export let onClick: (queryParams: QueryParams) => void;
+    export let onClick: () => void;
+    export let searchQuery: string;
 
-    let searchQuery: string;
-    let durations: [boolean, boolean, boolean] = [false, false, false];
-    let location: number;
-
-    function btnClickCB() {
-        onClick({
-            query: searchQuery,
-            locationId: location,
-            duration: {
-                "12": durations[0],
-                "18": durations[1],
-                "24": durations[2],
-            },
-        });
-    }
 </script>
 
 <div class="search-container">
@@ -30,12 +14,9 @@
             placeholder="Title, companies, expertise or benefits"
             bind:value={searchQuery}
         />
-        <button on:click={btnClickCB}>Search</button>
+        <button on:click={onClick}>Search</button>
     </div>
 </div>
-
-<!-- <DurationPicker value={durations} />
-<LocationPicker bind:location /> -->
 
 <style>
     .search-container {

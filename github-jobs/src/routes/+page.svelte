@@ -6,12 +6,16 @@
   import Pagination from "../components/Pagination.svelte";
 
   import { getConfig, getCurrentPage } from "../Utils";
-    import LocationPicker from "../components/LocationPicker.svelte";
-    import DurationPicker from "../components/DurationPicker.svelte";
+  import LocationPicker from "../components/LocationPicker.svelte";
+  import DurationPicker from "../components/DurationPicker.svelte";
 
   let artists: Root[] | undefined = undefined;
   let nbMaxElem: number;
   let currentPage = getCurrentPage();
+
+  let durations: [boolean, boolean, boolean] = [false, false, false];
+  let location: number;
+  let searchQuery: string;
 
   async function sendRequest() {
     artists = undefined; // Display loader
@@ -70,13 +74,22 @@
   onMount(sendRequest);
 </script>
 
-<SearchPanel onClick={newQuery} />
+<SearchPanel bind:searchQuery onClick={() => {
+  newQuery({
+    query: searchQuery,
+    locationId: location,
+    duration: {
+      "12": durations[0],
+      "18": durations[1],
+      "24": durations[2],
+    },
+  })
+}} />
 
 <div>
   <aside>
-    <DurationPicker value={[false, false, false]} />
-    <LocationPicker location={-1} />
-    <!-- <LocationPicker bind:location /> -->
+    <DurationPicker value={durations} />
+    <LocationPicker bind:location />
   </aside>
   
   <main>
