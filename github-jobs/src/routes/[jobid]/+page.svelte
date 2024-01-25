@@ -8,61 +8,95 @@
     export let data: Root;
 </script>
 
-
-<a class="back" href="/">← Back to search</a>
-
-<section class="content">
-    <div class="apply">
-        <h3>how to apply</h3>
-        <div>
-            Please apply directly on
-            <a
-                href={"https://mon-vie-via.businessfrance.fr/en/offres/" +
-                    data.id}
-                target="_blank">businessfrance.fr</a
-            >
-        </div>
-    </div>
-
-    <div class="job">
-        <h2>{data.missionTitle.toLocaleLowerCase()}</h2>
-        <div class="job-duration">{data.missionDuration} months</div>
-        <div class="publication tag">
-            <img src={clock} class="logo" alt="Clock Logo" />
-            <p>{getReleaseDate(data.startBroadcastDate)} days ago</p>
-        </div>
-    </div>
-
-    <div class="company">
-        <img
-            src={getLogoURL(data.organizationUrlImage)}
-            alt="Oragnization URL"
-            on:error={(error) => {
-                const { target } = error;
-                if (target instanceof HTMLImageElement) {
-                    target.classList.add("img-error");
-                    target.src = defaultImg;
-                }
-            }}
-        />
-
-        <div>
-            <h3 class="organization">{data.organizationName.toLowerCase()}</h3>
-            <div class="city tag">
-                <img src={globe} alt="Globe Logo" />
-                <p>{data.cityNameEn.toLowerCase()}</p>
+<div class="job-page">
+    <aside>
+        <a class="back" href="/">← Back to search</a>
+    
+        <div class="apply">
+            <h3>how to apply</h3>
+            <div>
+                Please apply directly on
+                <a
+                    href={"https://mon-vie-via.businessfrance.fr/en/offres/" +
+                        data.id}
+                    target="_blank">businessfrance.fr</a
+                >
             </div>
         </div>
-    </div>
-
-    <div class="description">
-        {@html data.missionDescription}
-        <br />
-        {@html data.missionProfile}
-    </div>
-</section>
+    </aside>
+    
+    <section class="content">
+    
+        <div class="job">
+            <div class="first-row">
+                <h2>{data.missionTitle.toLocaleLowerCase()}</h2>
+                <div class="job-duration">{data.missionDuration} months</div>
+            </div>
+            <div class="publication tag">
+                <img src={clock} class="logo" alt="Clock Logo" />
+                <p>{getReleaseDate(data.startBroadcastDate)} days ago</p>
+            </div>
+        </div>
+    
+        <div class="company">
+            <img
+                src={getLogoURL(data.organizationUrlImage)}
+                alt="Oragnization URL"
+                on:error={(error) => {
+                    const { target } = error;
+                    if (target instanceof HTMLImageElement) {
+                        target.classList.add("img-error");
+                        target.src = defaultImg;
+                    }
+                }}
+            />
+    
+            <div>
+                <h3 class="organization">{data.organizationName.toLowerCase()}</h3>
+                <div class="city tag">
+                    <img src={globe} alt="Globe Logo" />
+                    <p>{data.cityNameEn.toLowerCase()}</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="description">
+            {@html data.missionDescription}
+            <br />
+            {@html data.missionProfile}
+        </div>
+    </section>
+</div>
 
 <style>
+
+
+    @media screen and (min-width: 1025px) {
+        .job-page {
+            display: flex;
+            flex-direction: row;
+
+            gap: 75px;
+        }
+
+        aside {
+            flex-shrink: 0;
+            width: 230px;
+        }
+
+        .first-row {
+            /* display: inline; */
+            display: flex;
+            gap: 16px;
+
+            /* margin-bottom: ; */
+        }
+
+        .first-row > * {
+            margin-bottom: 0;
+        }
+    }
+
     .back {
         display: block;
         text-decoration: none;
