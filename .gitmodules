@@ -1,0 +1,3 @@
+[submodule "github-jobs"]
+	path = github-jobs
+	url = https://github.com/yPerrot/github-jobs

@@ -20,9 +20,9 @@ Done:
  - [Random quote generator](https://yperrot-quote-generator.netlify.app/)
  - [Country quiz](https://yperrot-country-quiz.netlify.app/)
  - [Weather app](https://yperrot-weather-app.netlify.app/)
+ - [Github Jobs](https://sveltekit-1-5933okcqm-yperrot.vercel.app/)
 
 To-Do:
- - Github Jobs
 
 ## Technologies 
 
